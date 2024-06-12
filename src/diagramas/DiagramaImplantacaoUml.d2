@@ -1,0 +1,75 @@
+# Define os dispositivos
+device user_device {
+  label "Dispositivo do usuário"
+  component web_browser {
+    label "Web Browser"
+  }
+  component wallet_studio {
+    label "Carteira Estúdio (MetaMask)"
+  }
+}
+
+# Define o servidor web
+server web_server {
+  label "Servidor Web"
+  component frontend_app {
+    label "Aplicação Frontend"
+  }
+  component metamask_wallet {
+    label "Carteira MetaMask"
+  }
+}
+
+# Define o servidor de aplicações e backend
+server app_backend_server {
+  label "Servidor de Aplicações & Backend - Python"
+  component communication_metamask {
+    label "Comunicação MetaMask"
+  }
+  component server_integration {
+    label "Integração com servidor"
+  }
+}
+
+# Define o TestNet
+network testnet {
+  label "TestNet"
+  component evm {
+    label "Ambiente de execução: EVM"
+  }
+  component solidity {
+    label "Linguagem: Solidity"
+  }
+  component smart_contracts {
+    label "Smart Contracts"
+  }
+  component consensus_mechanism {
+    label "Consensus Mechanism"
+  }
+  component blockchain_db {
+    label "Blockchain Database"
+  }
+}
+
+# Define o servidor SAP BTP
+server sap_btp_server {
+  label "Servidor SAP BTP"
+  component api_gateway {
+    label "API Gateway"
+  }
+  component blockchain_connection_service {
+    label "Serviço de conexão blockchain"
+  }
+}
+
+# Define o componente SQL
+database sql {
+  label "SQL"
+  component database_communication {
+    label "Comunicação com banco de dados"
+  }
+}
+
+# Descreve as conexões
+user_device -> web_server : http
+app_backend_server -> testnet : json_rpc
